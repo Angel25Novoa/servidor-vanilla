@@ -1,5 +1,17 @@
 console.clear()
 import {createServer} from 'http'
+import express from 'express'
+
+const PORT = 3080
+const expressApp = express()
+
+expressApp.listen(3000, () => {
+    console.log(`Listening on port ${PORT}`)
+})
+
+expressApp.get('/saludar', (req, res) => {
+    res.send('Hola mundo') 
+})
 
 const httpServer = createServer((req, res) => {
     // console.log(req.method, req.url, req.headers)
@@ -17,5 +29,5 @@ const httpServer = createServer((req, res) => {
 
 })
 
-httpServer.listen(3000)
+// httpServer.listen(3000)
 
